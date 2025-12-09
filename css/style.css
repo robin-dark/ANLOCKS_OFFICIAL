@@ -45,8 +45,8 @@ header {
     text-decoration: none;
 }
 .logo span { color: var(--secondary-color); }
-.section{ 
-    padding:200px;
+.section{
+    padding: 200px;
 }
 ul {
     list-style-type: none;
