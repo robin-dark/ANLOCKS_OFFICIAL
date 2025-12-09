@@ -46,8 +46,12 @@ header {
 }
 .logo span { color: var(--secondary-color); }
 .section{
-    padding: 200px;
-    margin:200px;
+    margin-top: 80px;
+    height: 85vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 ul {
     list-style-type: none;
