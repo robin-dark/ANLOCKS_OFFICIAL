@@ -47,6 +47,7 @@ header {
 .logo span { color: var(--secondary-color); }
 .section{
     padding: 200px;
+    margin:200px;
 }
 ul {
     list-style-type: none;
