@@ -45,6 +45,15 @@ header {
     text-decoration: none;
 }
 .logo span { color: var(--secondary-color); }
+ul {
+    list-style-type: none;
+    
+}
+li a{
+    
+    text-decoration: none;
+}
+
 
 .nav-links {
     display: flex;
