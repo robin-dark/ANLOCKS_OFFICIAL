@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janmashtami Special Set - ANLOCKS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-maroon: #580808;
+            --primary-gold: #C89D53;
+            --text-off-white: #e0e0e0;
+            --bg-dark: #0f0202;
+            --glass-panel: rgba(255, 255, 255, 0.05);
+        }
+        body { font-family: 'Lato', sans-serif; background-color: var(--bg-dark); color: var(--text-off-white); margin: 0; padding: 0; }
+        
+        /* Nav */
+        nav { padding: 15px 5%; background: var(--primary-maroon); display: flex; align-items: center; border-bottom: 2px solid var(--primary-gold); }
+        .back-link { color: var(--primary-gold); font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+
+        /* Product Layout */
+        .product-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        
+        /* Gallery */
+        .gallery-main { width: 100%; aspect-ratio: 1/1; background: #222; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+        .gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-thumbs { display: flex; gap: 10px; margin-top: 15px; }
+        .thumb { width: 70px; height: 70px; border-radius: 5px; overflow: hidden; border: 1px solid #444; cursor: pointer; opacity: 0.6; }
+        .thumb.active { border-color: var(--primary-gold); opacity: 1; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Details */
+        .product-info h1 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 1.8rem; margin-bottom: 10px; line-height: 1.3; }
+        .price-block { margin: 20px 0; font-size: 1.5rem; color: #fff; }
+        .price-block span { color: #888; text-decoration: line-through; font-size: 1rem; margin-left: 10px; }
+        
+        /* Size Selector */
+        .size-label { display: block; margin-bottom: 10px; font-weight: bold; color: var(--primary-gold); }
+        .size-options { display: flex; gap: 15px; margin-bottom: 25px; }
+        .size-btn { 
+            flex: 1; padding: 15px; border: 1px solid #444; background: var(--glass-panel); color: white; border-radius: 5px; cursor: pointer; text-align: left; transition: 0.3s;
+        }
+        .size-btn.selected { border: 2px solid var(--primary-gold); background: rgba(200, 157, 83, 0.1); }
+        .size-btn strong { display: block; font-size: 1.1rem; }
+        .size-btn small { color: #aaa; font-size: 0.8rem; }
+
+        /* Content List */
+        .content-list { background: var(--glass-panel); padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid var(--primary-gold); }
+        .content-list h3 { margin: 0 0 10px 0; font-size: 1rem; color: #fff; }
+        .content-list ul { margin: 0; padding-left: 20px; }
+        .content-list li { margin-bottom: 5px; color: #ccc; }
+
+        /* Buy Button */
+        .cta-btn { 
+            width: 100%; padding: 18px; background: #25D366; color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; 
+        }
+        .cta-btn:hover { background: #1ebc57; }
+        
+        .scarcity { color: #ff4d4d; font-size: 0.9rem; text-align: center; margin-top: 15px; font-weight: bold; }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .product-container { grid-template-columns: 1fr; margin-top: 20px; }
+            .gallery-main { aspect-ratio: 4/5; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <div class="product-container">
+        
+        <div class="product-gallery">
+            <div class="gallery-main">
+                <img id="mainImg" src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587640405.webp" alt="Laddu Gopal Set">
+            </div>
+            <div class="gallery-thumbs">
+                <div class="thumb active" onclick="changeImage(this, 'https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587640405.webp')">
+                    <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587640405.webp">
+                </div>
+                <div class="thumb" onclick="changeImage(this, 'https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587592351.webp')">
+                    <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587592351.webp">
+                </div>
+                 <div class="thumb" onclick="changeImage(this, 'https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767588033984.webp')">
+                    <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767588033984.webp">
+                </div>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1>Janmashtami Special Laddu Gopal Complete Shringaar Set – Mathura Inspired</h1>
+            
+            <div class="price-block">
+                ₹1,499 <span>₹2,199</span>
+            </div>
+
+            <div class="content-list">
+                <h3>✔ Sab Kuch Ready (Complete Set):</h3>
+                <ul>
+                    <li>1 Premium festive poshak</li>
+                    <li>1 Mukut & Mor pankh</li>
+                    <li>1 Bansuri & Mala</li>
+                </ul>
+            </div>
+
+            <label class="size-label">Select Size:</label>
+            <div class="size-options">
+                <div class="size-btn selected" onclick="selectSize(this, 'Small')">
+                    <strong>Small (0–2 No.)</strong>
+                    <small>90% homes ke liye fit</small>
+                </div>
+                <div class="size-btn" onclick="selectSize(this, 'Medium')">
+                    <strong>Medium (3–5 No.)</strong>
+                    <small>Standard Idol Size</small>
+                </div>
+            </div>
+
+            <button class="cta-btn" onclick="orderWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Confirm Order via WhatsApp
+            </button>
+            <p style="text-align: center; font-size: 0.8rem; margin-top: 10px; color: #888;">
+                <i class="fas fa-shield-alt"></i> COD Available after Address Confirmation
+            </p>
+
+            <div class="scarcity">
+                ⚠️ Limited pieces only for this Janmashtami
+            </div>
+
+            <div style="margin-top: 30px; line-height: 1.6; color: #ccc;">
+                <h3>Why this set?</h3>
+                <ul style="padding-left: 20px;">
+                    <li>Mathura–Vrindavan inspired design</li>
+                    <li>Soft premium fabric (Skin friendly)</li>
+                    <li>Perfect for Janmashtami & daily darshan</li>
+                    <li>Loved by devotees in Gujarat & Rajasthan</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedSize = 'Small (0-2 No.)';
+
+        function changeImage(thumb, src) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
+        function selectSize(btn, size) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedSize = size;
+        }
+
+        function orderWhatsApp() {
+            const phone = "919999999999"; // Replace with your number
+            const msg = `Namaste ANLOCKS Team,%0a%0aI want to buy: Janmashtami Special Complete Set%0aSize: ${selectedSize}%0aPrice: ₹1,499%0a%0aPlease confirm my address for COD.`;
+            window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
