@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Collection - ANLOCKS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h2><a href="index.html">ANLOCKS</a></h2></div>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="account.html">Track Order</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="account.html"><i class="fas fa-user"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-bag"></i> <span class="cart-count">2</span></a>
+        </div>
+    </header>
+
+    <div class="shop-container">
+        <aside class="filters">
+            <div class="filter-group">
+                <h4>Category</h4>
+                <label class="checkbox-item"><input type="checkbox" checked> Complete Sets</label>
+                <label class="checkbox-item"><input type="checkbox"> Poshak Only</label>
+                <label class="checkbox-item"><input type="checkbox"> Accessories</label>
+            </div>
+            <div class="filter-group">
+                <h4>Price</h4>
+                <label class="checkbox-item"><input type="checkbox"> Under ₹500</label>
+                <label class="checkbox-item"><input type="checkbox"> ₹500 - ₹1500</label>
+                <label class="checkbox-item"><input type="checkbox"> Above ₹1500</label>
+            </div>
+        </aside>
+
+        <main class="product-grid-area">
+            <div class="sort-bar">
+                <span>Showing 12 results</span>
+                <select class="form-control" style="width: auto;">
+                    <option>Sort by: Popularity</option>
+                    <option>Price: Low to High</option>
+                    <option>Newest First</option>
+                </select>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587640405.webp" class="product-img">
+                    <div class="product-info">
+                        <div class="p-title">Janmashtami Royal Set</div>
+                        <div class="p-price">₹1,499 <span class="p-old-price">₹1,999</span></div>
+                        <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587592351.webp" class="product-img">
+                    <div class="product-info">
+                        <div class="p-title">Vrindavan Daily Wear</div>
+                        <div class="p-price">₹499</div>
+                        <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767588033984.webp" class="product-img">
+                    <div class="product-info">
+                        <div class="p-title">Peacock Feather Mukut</div>
+                        <div class="p-price">₹299</div>
+                        <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
