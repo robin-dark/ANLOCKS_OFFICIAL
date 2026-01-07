@@ -1,3 +1,76 @@
+.Anlocks-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  z-index: 9999;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}
+
+/* Nav Item */
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.Anlocks-bottom-nav .nav-item {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: #616161;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.Anlocks-bottom-nav .nav-item .icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 2px;
+  fill: currentColor;
+  transition: fill 0.2s;
+}
+
+.Anlocks-bottom-nav .nav-item.active {
+  color: #2874F0; /* Anlocks blue */
+  font-weight: 600;
+}
+
+.Anlocks-bottom-nav .nav-item.active .icon {
+  fill: #2874F0;
+}
+
+/* Hover effect */
+.Anlocks-bottom-nav .nav-item:hover {
+  color: #2874F0;
+}
+
+/* Mobile Only */
+@media (max-width: 768px) {
+  .Anlocks-bottom-nav {
+    display: flex;
+  }
+}
+
+/* Hide on Desktop */
+@media (min-width: 769px) {
+  .Anlocks-bottom-nav {
+    display: none;
+  }
+}
+
+
 /* =========================================
    1. GLOBAL RESET & VARIABLES
    ========================================= */
