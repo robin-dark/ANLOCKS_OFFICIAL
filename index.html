@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANLOCKS - Mathura Inspired Laddu Gopal Poshak</title>
+    <title>ANLOCKS - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <div class="top-bar">
         <div class="top-info"><span><i class="fas fa-map-marker-alt"></i> Mathura-Vrindavan Based</span></div>
-        <div class="top-info"><span><i class="fas fa-phone-alt"></i> +91 (whatsapp only)</span></div>
+        <div class="top-info"><span><i class="fas fa-phone-alt"></i> +91 8000933720</span></div>
     </div>
 
     <header>
         <div class="logo">
-            <div class="logo-text"><h2>ANLOCKS</h2><p>PREMIUM SHRINGAAR</p></div>
+            <div class="logo-text"><h2><a href="index.html">ANLOCKS</a></h2><p>PREMIUM SHRINGAAR</p></div>
         </div>
-        <div class="header-actions">
-            <a href="product.html" class="hero-btn" style="padding: 5px 15px; font-size:0.8rem;">Shop Now</a>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="account.html">Track Order</a>
+        </nav>
+        <div class="nav-icons">
+            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <a href="account.html"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="cart-wrapper"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
         </div>
     </header>
 
@@ -34,8 +39,8 @@
             <div class="slide-content-wrapper">
                 <div class="hero-glass-card">
                     <h1>Mathura–Vrindavan se <span>Premium Laddu Gopal Poshak</span></h1>
-                    <p>Ahmedabad & Udaipur ke bhakton ke liye specially curated. Authentic Shringaar straight from the Holy Land.</p>
-                    <a href="product.html" class="hero-btn">View Janmashtami Collection</a>
+                    <p>Authentic Shringaar straight from the Holy Land.</p>
+                    <a href="product.html" class="hero-btn">View Collection</a>
                     <div class="cod-badge"><i class="fas fa-check-circle"></i> COD Available</div>
                 </div>
             </div>
@@ -51,7 +56,6 @@
                 </div>
             </div>
         </div>
-
         <div class="slider-dots">
             <div class="dot active-dot" onclick="goToSlide(0)"></div>
             <div class="dot" onclick="goToSlide(1)"></div>
@@ -60,30 +64,29 @@
 
     <div class="trust-strip">
         <div class="trust-item"><i class="fas fa-map-pin"></i> Mathura Based</div>
-        <div class="trust-item"><i class="fas fa-shipping-fast"></i> Fast Delivery (Ahmedabad/Udaipur)</div>
+        <div class="trust-item"><i class="fas fa-shipping-fast"></i> Fast Delivery</div>
         <div class="trust-item"><i class="fas fa-wallet"></i> COD Available</div>
-        <div class="trust-item"><i class="fas fa-sync-alt"></i> Size Replacement</div>
     </div>
 
     <section class="collections">
         <h2 class="section-title">Curated Collections</h2>
         <div class="collection-grid">
             <a href="product.html" class="collection-card col-hero">
-                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587640405.webp" alt="Janmashtami Set">
+                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587640405.webp">
                 <div class="col-overlay">
-                    <h3>Janmashtami Special Shringaar Sets</h3>
+                    <h3>Janmashtami Special Sets</h3>
                     <span>View Collection <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
             <div class="collection-card">
-                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767588033984.webp" alt="Daily Wear">
+                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767588033984.webp">
                 <div class="col-overlay">
                     <h3>Premium Daily Wear</h3>
                     <span>Explore</span>
                 </div>
             </div>
             <div class="collection-card">
-                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587592351.webp" alt="Accessories">
+                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587592351.webp">
                 <div class="col-overlay">
                     <h3>Shringaar Add-ons</h3>
                     <span>Explore</span>
@@ -92,56 +95,21 @@
         </div>
     </section>
 
-    <section class="social-proof">
-        <h2 class="section-title">Packing Orders from Mathura ❤️</h2>
-        <div class="video-placeholder">
-            <i class="fab fa-instagram" style="font-size: 3rem; color: #E1306C; margin-bottom: 20px;"></i>
-            <h3>Watch our latest Reel</h3>
-            <p>First batch shipping to Ahmedabad</p>
-            <small>(Embed Instagram Reel Here)</small>
-        </div>
-        <p>"Authentic devotion delivered to your doorstep."</p>
-    </section>
-
     <footer>
         <div class="footer-content">
             <div class="footer-col" style="flex: 2;">
                 <h4>ANLOCKS</h4>
                 <p>Mathura based small devotional brand.</p>
-                <p>We bring the essence of Vrindavan to your home temple.</p>
-                <p><strong>Serving:</strong> Ahmedabad | Udaipur | All India</p>
             </div>
             <div class="footer-col" style="flex: 1;">
-                <h4>Policies</h4>
-                <p>COD Available (Address Confirmation Required)</p>
-                <p>Returns & Replacements</p>
-                <p>Shipping Info</p>
-            </div>
-            <div class="footer-col" style="flex: 1;">
-                <h4>Contact</h4>
-                <a href="#" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                <h4>Links</h4>
+                <p><a href="shop.html">Shop</a></p>
+                <p><a href="account.html">Track Order</a></p>
             </div>
         </div>
-        <div class="copyright">
-            © 2025 ANLOCKS. All Rights Reserved. Jai Shree Krishna.
-        </div>
+        <div class="copyright">© 2025 ANLOCKS. All Rights Reserved.</div>
     </footer>
 
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        const slideInterval = 5000;
-
-        function goToSlide(index) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active-dot');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active-dot');
-        }
-        function nextSlide() { goToSlide(currentSlide + 1); }
-        let slideTimer = setInterval(nextSlide, slideInterval);
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
