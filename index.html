@@ -1,275 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANLOCKS - Mathura Inspired Laddu Gopal Poshak</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ANLOCKS helps you unlock smarter living with the best smart kitchen and home essentials. Trusted Amazon picks based on real ratings and performance.">
+<title>ANLOCKS | Unlock Smarter Living</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        /* --- RESET & VARIABLES (YOUR DESIGN) --- */
-        :root {
-            --primary-maroon: #580808;
-            --primary-gold: #C89D53;
-            --gold-hover: #b08840;
-            --text-white: #ffffff;
-            --text-off-white: #e0e0e0;
-            --glass-bg: rgba(20, 5, 5, 0.75); /* Slightly darker for readability */
-            --bg-dark: #0f0202;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; overflow-x: hidden; background-color: var(--bg-dark); color: var(--text-off-white); }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
+<style>
+:root{
+    --cream:#f4f2ec;
+    --orange:#ffa500;
+    --navy:#283E7C;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:var(--cream);color:#222;line-height:1.6;}
+section{padding:80px 8%;}
+h1,h2,h3{color:var(--navy);}
+a{text-decoration:none;}
 
-        /* --- TOP BAR --- */
-        .top-bar { background-color: #3e0404; color: var(--text-off-white); padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .top-info span { margin-right: 15px; } .top-info i { color: var(--primary-gold); margin-right: 5px; }
+nav{
+    background:var(--navy);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.logo{color:white;font-weight:600;letter-spacing:2px;}
+.nav-links{display:flex;gap:25px;}
+.nav-links a{color:white;font-size:14px;}
+.menu-toggle{display:none;color:white;font-size:26px;cursor:pointer;}
 
-        /* --- HEADER --- */
-        header { background-color: var(--primary-maroon); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .logo { display: flex; align-items: center; gap: 10px; }
-        .logo-text h2 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 1.5rem; line-height: 1; }
-        .logo-text p { font-size: 0.6rem; color: var(--text-white); letter-spacing: 1px; }
-        .header-actions .cart-btn { color: white; font-size: 1.2rem; margin-left: 15px; }
+.hero{text-align:center;padding:100px 8%;}
+.hero h1{font-size:48px;margin-bottom:20px;}
+.hero span{color:var(--orange);}
+.hero p{max-width:750px;margin:0 auto 30px;font-size:17px;}
+.cta{
+    background:var(--orange);
+    color:white;
+    padding:14px 30px;
+    border-radius:6px;
+    font-weight:600;
+    display:inline-block;
+}
+.cta:hover{background:#e69500;}
 
-        /* --- HERO SLIDER (YOUR CODE + 16:9 FIX) --- */
-        .hero-slider { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #1a0505; }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; visibility: hidden; transition: opacity 1.2s ease-in-out, visibility 1.2s; z-index: 1; }
-        .slide.active { opacity: 1; visibility: visible; z-index: 2; }
-        .slide-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transform: scale(1); transition: transform 6s linear; }
-        .slide.active .slide-bg { transform: scale(1.1); }
-        .slide-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); }
-        
-        /* Glass Card */
-        .slide-content-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; padding: 0 5%; }
-        .hero-glass-card { background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 40px; border-radius: 15px; max-width: 600px; border: 1px solid rgba(255, 255, 255, 0.1); opacity: 0; transform: translateY(30px); }
-        .slide.active .hero-glass-card { animation: fadeUpCard 1s ease-out forwards 0.5s; }
-        
-        .hero-glass-card h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; line-height: 1.2; margin-bottom: 10px; color: white; }
-        .hero-glass-card h1 span { display: block; font-size: 1.6rem; color: var(--primary-gold); margin-top: 5px; }
-        .hero-glass-card p { font-size: 1rem; line-height: 1.6; margin-bottom: 25px; color: var(--text-off-white); border-left: 3px solid var(--primary-gold); padding-left: 15px; }
-        
-        .hero-btn { background-color: var(--primary-gold); color: #3e0404; padding: 12px 30px; border-radius: 5px; font-weight: bold; display: inline-block; transition: all 0.3s ease; margin-right: 10px; }
-        .hero-btn:hover { background-color: #fff; transform: translateX(5px); }
-        .cod-badge { font-size: 0.9rem; color: #fff; display: inline-block; }
+.section-title{text-align:center;font-size:32px;margin-bottom:50px;}
 
-        .slider-dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); cursor: pointer; transition: 0.3s; }
-        .dot.active-dot { background: var(--primary-gold); transform: scale(1.2); }
+.products{background:white;}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+.card{
+    border:1px solid #eee;
+    border-radius:10px;
+    padding:20px;
+    transition:0.3s ease;
+    background:white;
+}
+.card:hover{box-shadow:0 15px 30px rgba(0,0,0,0.08);}
+.card img{width:100%;border-radius:8px;margin-bottom:15px;}
+.rating{color:var(--orange);margin-bottom:10px;}
+.price{font-weight:600;color:var(--orange);margin:10px 0;}
+.btn{
+    display:inline-block;
+    background:var(--navy);
+    color:white;
+    padding:10px 18px;
+    border-radius:5px;
+    font-size:14px;
+}
 
-        @keyframes fadeUpCard { to { opacity: 1; transform: translateY(0); } }
+.compare table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+.compare th,.compare td{
+    border:1px solid #eee;
+    padding:15px;
+    text-align:center;
+}
+.compare th{background:var(--navy);color:white;}
 
-        /* --- 2. TRUST STRIP --- */
-        .trust-strip { background: var(--primary-gold); color: #2a0303; padding: 20px 5%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; text-align: center; }
-        .trust-item { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.9rem; }
-        .trust-item i { font-size: 1.2rem; }
+.content{background:white;padding:10px;margin:10px;}
+.content p{margin-bottom:20px;}
 
-        /* --- 3. COLLECTIONS (LIMITED TO 3) --- */
-        .collections { padding: 60px 5%; }
-        .section-title { text-align: center; font-family: 'Cinzel', serif; font-size: 2rem; color: var(--primary-gold); margin-bottom: 40px; }
-        .collection-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        
-        .collection-card { position: relative; height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; }
-        .collection-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .collection-card:hover img { transform: scale(1.1); }
-        .col-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
-        .col-overlay h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--primary-gold); margin-bottom: 5px; }
-        .col-overlay span { font-size: 0.8rem; color: white; text-transform: uppercase; letter-spacing: 1px; }
+.faq{background:white;}
+.faq-item{margin-bottom:20px;}
 
-        /* Hero Collection (Spans 2 columns) */
-        .col-hero { grid-column: span 2; height: 350px; }
+footer{
+    background:var(--navy);
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-size:13px;
+}
 
-        /* --- 4. SOCIAL PROOF --- */
-        .social-proof { background: #150505; padding: 60px 5%; text-align: center; border-top: 1px solid #333; }
-        .video-placeholder { 
-            background: #000; width: 100%; max-width: 400px; height: 600px; margin: 20px auto; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            border: 2px solid var(--primary-gold); border-radius: 15px; color: #555;
-        }
-        .social-proof p { color: var(--text-off-white); margin-top: 10px; font-style: italic; }
-
-        /* --- 5. FOOTER --- */
-        footer { background: var(--primary-maroon); padding: 40px 5%; border-top: 4px solid var(--primary-gold); margin-top: 50px; }
-        .footer-content { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
-        .footer-col h4 { font-family: 'Cinzel', serif; color: var(--primary-gold); margin-bottom: 15px; font-size: 1.2rem; }
-        .footer-col p { font-size: 0.9rem; line-height: 1.6; opacity: 0.8; margin-bottom: 10px; }
-        .whatsapp-btn { display: inline-block; background: #25D366; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        .copyright { text-align: center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; opacity: 0.6; }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero-slider { aspect-ratio: unset; height: 75vh; }
-            .hero-glass-card { margin: 0 10px; padding: 25px; width: 100%; }
-            .hero-glass-card h1 { font-size: 1.8rem; }
-            .trust-strip { gap: 20px; justify-content: center; }
-            .trust-item { width: 45%; justify-content: center; }
-            .collection-grid { grid-template-columns: 1fr; }
-            .col-hero { grid-column: span 1; height: 300px; }
-            .footer-content { flex-direction: column; text-align: center; }
-        }
-    </style>
+@media(max-width:768px){
+    .hero h1{font-size:32px;}
+    .nav-links{
+        position:absolute;
+        top:60px;
+        right:0;
+        background:var(--navy);
+        flex-direction:column;
+        display:none;
+        padding:20px;
+        border-radius:0 0 0 10px;
+    }
+    .nav-links.active{display:flex;}
+    .menu-toggle{display:block;}
+}
+</style>
 </head>
+
 <body>
 
-    <div class="top-bar">
-        <div class="top-info"><span><i class="fas fa-map-marker-alt"></i> Mathura-Vrindavan Based</span></div>
-        <div class="top-info"><span><i class="fas fa-phone-alt"></i> +91 (whatsapp only)</span></div>
+<nav>
+    <div class="logo">ANLOCKS</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#featured">Top Picks</a>
+        <a href="#compare">Compare</a>
+        <a href="#faq">FAQ</a>
     </div>
+</nav>
 
-    <header>
-        <div class="logo">
-            <div class="logo-text"><h2>ANLOCKS</h2><p>PREMIUM SHRINGAAR</p></div>
-        </div>
-        <div class="header-actions">
-            <a href="product.html" class="hero-btn" style="padding: 5px 15px; font-size:0.8rem;">Shop Now</a>
-        </div>
-    </header>
+<section class="hero">
+    <h1>Unlock <span>Smarter Living</span></h1>
+    <p>Discover high-performance smart kitchen and home essentials that improve productivity, save time, and upgrade your lifestyle.</p>
+    <a href="#featured" class="cta">Explore Smart Picks</a>
+</section>
 
-    <section class="hero-slider">
-        <div class="slide active">
-            <div class="slide-bg" style="background-image: url('https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587509221.webp');"></div>
-            <div class="slide-overlay"></div>
-            <div class="slide-content-wrapper">
-                <div class="hero-glass-card">
-                    <h1>Mathura–Vrindavan se <span>Premium Laddu Gopal Poshak</span></h1>
-                    <p>Ahmedabad & Udaipur ke bhakton ke liye specially curated. Authentic Shringaar straight from the Holy Land.</p>
-                    <a href="product.html" class="hero-btn">View Janmashtami Collection</a>
-                    <div class="cod-badge"><i class="fas fa-check-circle"></i> COD Available</div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="slide-bg" style="background-image: url('https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587592351.webp');"></div>
-            <div class="slide-overlay"></div>
-            <div class="slide-content-wrapper">
-                <div class="hero-glass-card">
-                    <h1>Complete Shringaar Sets <span>No Confusion, Just Devotion</span></h1>
-                    <p>Poshak, Mukut, Bansuri, Mala - Sab kuch ek set me.</p>
-                    <a href="product.html" class="hero-btn">Shop Sets</a>
-                </div>
-            </div>
+<section class="products" id="featured">
+    <h2 class="section-title">🔥 Featured Smart Picks</h2>
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/refs/heads/main/assets/1771140582631.png" alt="">
+            <div class="rating">★★★★★ (4.5/5)</div>
+            <h3>Smart Cooking Upgrade</h3>
+            <p>Engineered for performance and durability in modern kitchens.</p>
+            <div class="price">Best Seller</div>
+            <a href="https://amzn.to/4tD8u27" target="_blank" rel="nofollow sponsored" class="btn">Unlock on Amazon</a>
         </div>
 
-        <div class="slider-dots">
-            <div class="dot active-dot" onclick="goToSlide(0)"></div>
-            <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x250" alt="">
+            <div class="rating">★★★★☆ (4.3/5)</div>
+            <h3>Time Saving Essential</h3>
+            <p>Designed to increase daily efficiency and reduce manual effort.</p>
+            <div class="price">Customer Favorite</div>
+            <a href="https://amzn.to/4qOevGM" target="_blank" rel="nofollow sponsored" class="btn">Unlock on Amazon</a>
         </div>
-    </section>
 
-    <div class="trust-strip">
-        <div class="trust-item"><i class="fas fa-map-pin"></i> Mathura Based</div>
-        <div class="trust-item"><i class="fas fa-shipping-fast"></i> Fast Delivery (Ahmedabad/Udaipur)</div>
-        <div class="trust-item"><i class="fas fa-wallet"></i> COD Available</div>
-        <div class="trust-item"><i class="fas fa-sync-alt"></i> Size Replacement</div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x250" alt="">
+            <div class="rating">★★★★★ (4.6/5)</div>
+            <h3>Space Optimization Tool</h3>
+            <p>Compact design with high functionality for organized homes.</p>
+            <div class="price">Highly Recommended</div>
+            <a href="https://amzn.to/4cwtam9" target="_blank" rel="nofollow sponsored" class="btn">Unlock on Amazon</a>
+        </div>
+
     </div>
+</section>
 
-    <section class="collections">
-        <h2 class="section-title">Curated Collections</h2>
-        <div class="collection-grid">
-            <a href="product.html" class="collection-card col-hero">
-                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587640405.webp" alt="Janmashtami Set">
-                <div class="col-overlay">
-                    <h3>Janmashtami Special Shringaar Sets</h3>
-                    <span>View Collection <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <div class="collection-card">
-                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767588033984.webp" alt="Daily Wear">
-                <div class="col-overlay">
-                    <h3>Premium Daily Wear</h3>
-                    <span>Explore</span>
-                </div>
-            </div>
-            <div class="collection-card">
-                <img src="https://raw.githubusercontent.com/robin-dark/ANLOCKS_OFFICIAL/main/assets/1767587592351.webp" alt="Accessories">
-                <div class="col-overlay">
-                    <h3>Shringaar Add-ons</h3>
-                    <span>Explore</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="compare" id="compare">
+    <h2 class="section-title">📊 Quick Comparison</h2>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Product 1</th>
+            <th>Product 2</th>
+            <th>Product 3</th>
+        </tr>
+        <tr>
+            <td>Rating</td>
+            <td>4.5/5</td>
+            <td>4.3/5</td>
+            <td>4.6/5</td>
+        </tr>
+        <tr>
+            <td>Best For</td>
+            <td>Cooking Efficiency</td>
+            <td>Time Saving</td>
+            <td>Space Saving</td>
+        </tr>
+        <tr>
+            <td>Buy Link</td>
+            <td><a href="https://amzn.to/4tD8u27" target="_blank" rel="nofollow sponsored">View</a></td>
+            <td><a href="https://amzn.to/4qOevGM" target="_blank" rel="nofollow sponsored">View</a></td>
+            <td><a href="https://amzn.to/4cwtam9" target="_blank" rel="nofollow sponsored">View</a></td>
+        </tr>
+    </table>
+</section>
 
-    <section class="social-proof">
-        <h2 class="section-title">Packing Orders from Mathura ❤️</h2>
-        <div class="video-placeholder">
-            <i class="fab fa-instagram" style="font-size: 3rem; color: #E1306C; margin-bottom: 20px;"></i>
-            <h3>Watch our latest Reel</h3>
-            <p>First batch shipping to Ahmedabad</p>
-            <small>(Embed Instagram Reel Here)</small>
-        </div>
-        <p>"Authentic devotion delivered to your doorstep."</p>
-    </section>
+<section class="content">
+    <h2 class="section-title">Why Smart Home Upgrades Matter</h2>
+    <p>Modern homes demand efficiency. Smart kitchen tools and organization solutions reduce time waste, improve workflow, and enhance overall living quality.</p>
+    <p>Instead of buying random products, investing in well-rated, high-performance essentials ensures long-term value and reliability.</p>
+</section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col" style="flex: 2;">
-                <h4>ANLOCKS</h4>
-                <p>Mathura based small devotional brand.</p>
-                <p>We bring the essence of Vrindavan to your home temple.</p>
-                <p><strong>Serving:</strong> Ahmedabad | Udaipur | All India</p>
-            </div>
-            <div class="footer-col" style="flex: 1;">
-                <h4>Policies</h4>
-                <p>COD Available (Address Confirmation Required)</p>
-                <p>Returns & Replacements</p>
-                <p>Shipping Info</p>
-            </div>
-            <div class="footer-col" style="flex: 1;">
-                <h4>Contact</h4>
-                <a href="#" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2025 ANLOCKS. All Rights Reserved. Jai Shree Krishna.
-        </div>
-    </footer>
-<!-- Google Material Icons -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-<div class="Anlocks-bottom-nav">
-  <a href="/index.html" class="nav-item {% if request.path == '/' %}active{% endif %}">
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
-    <span>Home</span>
-  </a>
-  <a href="/" class="nav-item {% if request.path contains 'collections' %}active{% endif %}">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M220-464 64-620l156-156 156 156-156 156ZM360-80v-200q-61-5-121-14.5T120-320l20-80q84 23 168.5 31.5T480-360q87 0 171.5-8.5T820-400l20 80q-59 16-119 25.5T600-280v200H360ZM220-576l44-44-44-44-44 44 44 44Zm260-104q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Zm0 280q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-360q17 0 28.5-11.5T520-800q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800q0 17 11.5 28.5T480-760Zm202 280-68-120 68-120h136l68 120-68 120H682Zm46-80h44l22-40-22-40h-44l-22 40 22 40Zm-508-60Zm260-180Zm270 200Z"/></svg>
-    <span>Categories</span>
-  </a>
-  <a href="/search.html" class="nav-item {% if request.path contains 'collections' %}active{% endif %}">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-    <span>Search</span>
-  </a>
-  <a href="/account.html" class="nav-item {% if request.path contains 'account' %}active{% endif %}">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-183v-274L200-596v274l240 139Zm80 0 240-139v-274L520-457v274Zm-80 92L160-252q-19-11-29.5-29T120-321v-318q0-22 10.5-40t29.5-29l280-161q19-11 40-11t40 11l280 161q19 11 29.5 29t10.5 40v318q0 22-10.5 40T800-252L520-91q-19 11-40 11t-40-11Zm200-528 77-44-237-137-78 45 238 136Zm-160 93 78-45-237-137-78 45 237 137Z"/></svg>
-    <span>Cart</span>
-  </a>
-  <a href="/account/login" class="nav-item {% if request.path contains 'account' %}active{% endif %}">
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-240Zm-320 80v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440h14q-11 18-16.5 38.5T472-360q-54 1-107.5 14.5T260-306q-9 5-14.5 14t-5.5 20v32h283l80 80H160Zm320-320q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm236 480L576-300q-13-13-18.5-28t-5.5-30q0-32 23-57t59-25q28 0 44 13t38 35q20-20 36.5-34t45.5-14q37 0 59.5 25.5T880-357q0 15-6 30t-18 27L716-160Z"/></svg>
-    <span>Account</span>
-  </a>
-</div>
+<section class="faq" id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <h3>Are these products verified?</h3>
+        <p>All products are selected based on ratings, reviews, and performance metrics on Amazon.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Do you sell products directly?</h3>
+        <p>No. ANLOCKS participates in the Amazon Associates Program and earns from qualifying purchases.</p>
+    </div>
+</section>
 
-<style type="text/css" media="all">
-    
-</style>
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        const slideInterval = 5000;
+<footer>
+    <p>Disclosure: As an Amazon Associate, ANLOCKS earns from qualifying purchases.</p>
+    <p>© 2026 ANLOCKS</p>
+</footer>
 
-        function goToSlide(index) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active-dot');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active-dot');
-        }
-        function nextSlide() { goToSlide(currentSlide + 1); }
-        let slideTimer = setInterval(nextSlide, slideInterval);
-    </script>
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
 </body>
 </html>
