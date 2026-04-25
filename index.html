@@ -3,1204 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANLOCKS | Professional Video Editor & Motion Designer</title>
-    <meta name="description" content="ANLOCKS - Professional Video Editing, Color Grading, Motion Graphics & VFX. Transform your vision into cinematic reality.">
-    <meta name="keywords" content="video editor, motion graphics, color grading, video production, ANLOCKS">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Anlocks | Premium Video Editing Portfolio</title>
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-blue: #283e7f;
+            --accent-orange: #ffa500;
+            --bg-light: #f4f2ec;
+            --text-dark: #1a2442; /* A dark shade derived from primary blue */
+            --white: #ffffff;
+            --transition-speed: 0.3s;
+        }
+
+        /* Base Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: var(--primary-blue); }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; text-align: center; color: var(--primary-blue); }
+        p { font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(40, 62, 127, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color var(--transition-speed);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-orange);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 10px 20px rgba(255, 165, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #e69500;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            margin-left: 15px;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Portfolio Grid */
+        .portfolio {
+            padding: 100px 5%;
+            background-color: var(--white);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--bg-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(40, 62, 127, 0.1);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 250px;
+            background-color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Play Button Overlay */
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 165, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .video-card:hover .play-btn {
+            opacity: 1;
+        }
+
+        .video-info {
+            padding: 25px;
+        }
+
+        .video-info h3 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: rgba(255, 165, 0, 0.1);
+            color: var(--accent-orange);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+
+        /* Contact & Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--bg-light);
+            text-align: center;
+            padding: 60px 5%;
+        }
+
+        footer h2 {
+            color: var(--white);
+        }
+
+        footer p {
+            color: #b0b8d1;
+        }
+
+        .footer-link {
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero { flex-direction: column; justify-content: center; text-align: center; }
+            .hero-content { margin-bottom: 50px; }
+            .nav-links { display: none; } /* Add a hamburger menu later for mobile if needed */
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ========== PRELOADER ========== -->
-    <div id="preloader">
-        <div class="loader">
-            <div class="loader-logo">ANLOCKS</div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
-            <div class="loader-text">Loading Experience...</div>
+    <nav>
+        <a href="#" class="logo">Anlocks <span>Edits</span></a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#work">Portfolio</a>
+            <a href="#contact">Contact</a>
+            <a href="https://anlocks.com/" target="_blank">Store</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- ========== CUSTOM CURSOR ========== -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <!-- ========== NAVIGATION ========== -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <!-- Logo -->
-                <a href="#home" class="logo">
-                    <span class="logo-an">AN</span><span class="logo-locks">LOCKS</span>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#showreel" class="nav-link">Showreel</a></li>
-                    <li><a href="#work" class="nav-link">Work</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#testimonials" class="nav-link">Reviews</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-
-                <!-- CTA Button -->
-                <a href="#contact" class="nav-cta">
-                    <span>Hire Me</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-
-                <!-- Mobile Menu Toggle -->
-                <button class="nav-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- ========== MOBILE MENU ========== -->
-    <div class="mobile-menu">
-        <div class="mobile-menu-container">
-            <ul class="mobile-nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#showreel">Showreel</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-social">
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-behance"></i></a>
-                <a href="#"><i class="fab fa-vimeo-v"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========== HERO SECTION ========== -->
-    <section id="home" class="hero">
-        <!-- Video Background -->
-        <div class="hero-video-bg">
-            <video autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
-                <source src="assets/videos/hero-bg.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-        </div>
-
-        <!-- Floating Elements -->
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-
-        <!-- Hero Content -->
-        <div class="hero-content">
-            <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
-                <span class="badge-dot"></span>
-                Available for Freelance Projects
-            </div>
-
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">
-                <span class="title-line">Crafting Visual</span>
-                <span class="title-line"><span class="gradient-text">Stories</span> That</span>
-                <span class="title-line title-outline">Inspire</span>
-            </h1>
-
-            <p class="hero-description" data-aos="fade-up" data-aos-delay="600">
-                Professional video editor specializing in cinematic storytelling, 
-                color grading, motion graphics, and visual effects. Let's transform 
-                your raw footage into a masterpiece.
-            </p>
-
-            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
-                <a href="#showreel" class="btn btn-primary">
-                    <i class="fas fa-play"></i>
-                    <span>Watch Showreel</span>
-                </a>
-                <a href="#work" class="btn btn-secondary">
-                    <span>View My Work</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <!-- Stats -->
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="1000">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="200">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Projects Completed</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="50">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Happy Clients</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="5">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="10">0</span>
-                    <span class="stat-plus">M+</span>
-                    <span class="stat-label">Views Generated</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <span>Scroll to Explore</span>
-            <div class="scroll-line">
-                <div class="scroll-dot"></div>
-            </div>
-        </div>
-
-        <!-- Social Links -->
-        <div class="hero-social">
-            <a href="https://youtube.com/@anlocks" target="_blank" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://instagram.com/anlocks" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://behance.net/anlocks" target="_blank" aria-label="Behance">
-                <i class="fab fa-behance"></i>
-            </a>
-            <a href="https://vimeo.com/anlocks" target="_blank" aria-label="Vimeo">
-                <i class="fab fa-vimeo-v"></i>
-            </a>
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h1>Crafting Visual <br><span>Masterpieces</span></h1>
+            <p>Premium video editing services tailored for high-retention YouTube content, cinematic sequences, and brand storytelling. Elevate your visual identity today.</p>
+            <a href="#work" class="btn">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Let's Talk</a>
         </div>
     </section>
 
-    <!-- ========== MARQUEE ========== -->
-    <section class="marquee-section">
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <div class="marquee-content">
-                    <span>VIDEO EDITING</span>
-                    <span class="marquee-star">★</span>
-                    <span>COLOR GRADING</span>
-                    <span class="marquee-star">★</span>
-                    <span>MOTION GRAPHICS</span>
-                    <span class="marquee-star">★</span>
-                    <span>VISUAL EFFECTS</span>
-                    <span class="marquee-star">★</span>
-                    <span>SOUND DESIGN</span>
-                    <span class="marquee-star">★</span>
-                    <span>VIDEO EDITING</span>
-                    <span class="marquee-star">★</span>
-                    <span>COLOR GRADING</span>
-                    <span class="marquee-star">★</span>
-                    <span>MOTION GRAPHICS</span>
-                    <span class="marquee-star">★</span>
-                    <span>VISUAL EFFECTS</span>
-                    <span class="marquee-star">★</span>
-                    <span>SOUND DESIGN</span>
-                    <span class="marquee-star">★</span>
+    <section class="portfolio" id="work">
+        <h2 class="fade-in">Featured Projects</h2>
+        <div class="grid">
+            
+            <div class="video-card fade-in">
+                <div class="video-thumbnail" style="background: linear-gradient(135deg, var(--primary-blue) 0%, #1a2442 100%);">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="video-info">
+                    <span class="tag">Cinematic Timelapses</span>
+                    <h3 style="margin-top: 10px;">Immersive Build Montages</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">High-end cinematic rendering with dynamic camera movements and precise color grading.</p>
                 </div>
             </div>
+
+            <div class="video-card fade-in">
+                <div class="video-thumbnail" style="background: linear-gradient(135deg, #1a2442 0%, var(--primary-blue) 100%);">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="video-info">
+                    <span class="tag">YouTube Content</span>
+                    <h3 style="margin-top: 10px;">High-Retention Tutorials</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Fast-paced, engaging edits designed to maximize viewer retention and algorithm performance.</p>
+                </div>
+            </div>
+
+            <div class="video-card fade-in">
+                <div class="video-thumbnail" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-orange) 100%);">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="video-info">
+                    <span class="tag">Brand Promos</span>
+                    <h3 style="margin-top: 10px;">E-commerce Product Ads</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Sleek, modern promotional videos designed to drive conversions and showcase product quality.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- ========== SHOWREEL SECTION ========== -->
-    <section id="showreel" class="showreel-section">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">// MY SHOWREEL</span>
-                <h2 class="section-title">
-                    See My Work <span class="gradient-text">In Action</span>
-                </h2>
-                <p class="section-description">
-                    A curated collection of my best work showcasing editing, color grading, and visual effects
-                </p>
-            </div>
-
-            <!-- Showreel Video -->
-            <div class="showreel-wrapper" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="showreel-container">
-                    <!-- Video Thumbnail -->
-                    <div class="showreel-thumbnail" id="showreelThumbnail">
-                        <img src="assets/thumbnails/showreel-thumb.jpg" alt="ANLOCKS Showreel 2024">
-                        <div class="showreel-overlay">
-                            <button class="play-btn" id="playShowreel">
-                                <div class="play-btn-bg"></div>
-                                <i class="fas fa-play"></i>
-                            </button>
-                            <span class="showreel-duration">02:45</span>
-                        </div>
-                    </div>
-
-                    <!-- Video iFrame (hidden until clicked) -->
-                    <div class="showreel-video" id="showreelVideo" style="display: none;">
-                        <!-- 🎬 REPLACE VIDEO_ID WITH YOUR ACTUAL YOUTUBE VIDEO ID -->
-                        <iframe 
-                            src="" 
-                            data-src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&rel=0&modestbranding=1"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-
-                    <!-- Video Frame Decoration -->
-                    <div class="showreel-frame">
-                        <div class="frame-corner top-left"></div>
-                        <div class="frame-corner top-right"></div>
-                        <div class="frame-corner bottom-left"></div>
-                        <div class="frame-corner bottom-right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Showreel Stats -->
-            <div class="showreel-stats" data-aos="fade-up" data-aos-delay="200">
-                <div class="showreel-stat">
-                    <i class="fas fa-film"></i>
-                    <span>50+ Clips</span>
-                </div>
-                <div class="showreel-stat">
-                    <i class="fas fa-palette"></i>
-                    <span>Custom Color Grades</span>
-                </div>
-                <div class="showreel-stat">
-                    <i class="fas fa-music"></i>
-                    <span>Synced Audio</span>
-                </div>
-                <div class="showreel-stat">
-                    <i class="fas fa-magic"></i>
-                    <span>VFX & Motion</span>
-                </div>
-            </div>
+    <footer id="contact" class="fade-in">
+        <h2>Ready to upgrade your content?</h2>
+        <p>Let's collaborate on your next big project.</p>
+        <div style="margin-top: 30px;">
+            <a href="mailto:contact@anlocks.com" class="btn" style="background-color: var(--white); color: var(--primary-blue);">Get in Touch</a>
         </div>
-    </section>
-
-    <!-- ========== PORTFOLIO/WORK SECTION ========== -->
-    <section id="work" class="work-section">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">// SELECTED WORKS</span>
-                <h2 class="section-title">
-                    Featured <span class="gradient-text">Projects</span>
-                </h2>
-                <p class="section-description">
-                    Browse through my latest video editing projects across various industries
-                </p>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="filter-container" data-aos="fade-up" data-aos-delay="100">
-                <button class="filter-btn active" data-filter="all">
-                    <span>All Work</span>
-                    <span class="filter-count">12</span>
-                </button>
-                <button class="filter-btn" data-filter="commercial">
-                    <span>Commercials</span>
-                    <span class="filter-count">4</span>
-                </button>
-                <button class="filter-btn" data-filter="music-video">
-                    <span>Music Videos</span>
-                    <span class="filter-count">3</span>
-                </button>
-                <button class="filter-btn" data-filter="short-film">
-                    <span>Short Films</span>
-                    <span class="filter-count">2</span>
-                </button>
-                <button class="filter-btn" data-filter="social">
-                    <span>Social Media</span>
-                    <span class="filter-count">3</span>
-                </button>
-            </div>
-
-            <!-- Portfolio Grid -->
-            <div class="portfolio-grid">
-                
-                <!-- Project 1 -->
-                <article class="project-card" data-category="commercial" data-aos="fade-up">
-                    <div class="project-media">
-                        <img src="assets/thumbnails/project1.jpg" alt="Nike Commercial">
-                        <div class="project-overlay">
-                            <button class="project-play" data-video="VIDEO_ID_1">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <span class="project-category">Commercial</span>
-                        <span class="project-duration">
-                            <i class="fas fa-clock"></i> 0:60
-                        </span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Nike - "Just Move"</h3>
-                        <p class="project-description">High-energy brand commercial with dynamic transitions and color grading</p>
-                        <div class="project-tags">
-                            <span>Premiere Pro</span>
-                            <span>After Effects</span>
-                            <span>Color Grading</span>
-                        </div>
-                        <div class="project-stats">
-                            <span><i class="fas fa-eye"></i> 1.2M views</span>
-                            <span><i class="fas fa-heart"></i> 45K likes</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="project-card featured" data-category="music-video" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-media">
-                        <img src="assets/thumbnails/project2.jpg" alt="Music Video Eclipse">
-                        <div class="project-overlay">
-                            <button class="project-play" data-video="VIDEO_ID_2">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <span class="project-category">Music Video</span>
-                        <span class="project-duration">
-                            <i class="fas fa-clock"></i> 4:20
-                        </span>
-                        <span class="project-badge">Featured</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Artist Name - "Eclipse"</h3>
-                        <p class="project-description">Cinematic music video with VFX, color grading and creative storytelling</p>
-                        <div class="project-tags">
-                            <span>VFX</span>
-                            <span>Color Grading</span>
-                            <span>Motion Graphics</span>
-                        </div>
-                        <div class="project-stats">
-                            <span><i class="fas fa-eye"></i> 2.5M views</span>
-                            <span><i class="fas fa-heart"></i> 120K likes</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card" data-category="short-film" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-media">
-                        <img src="assets/thumbnails/project3.jpg" alt="Short Film Parallel">
-                        <div class="project-overlay">
-                            <button class="project-play" data-video="VIDEO_ID_3">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <span class="project-category">Short Film</span>
-                        <span class="project-duration">
-                            <i class="fas fa-clock"></i> 12:00
-                        </span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">"Parallel" - Award Winner</h3>
-                        <p class="project-description">Award-winning short film with cinematic editing and sound design</p>
-                        <div class="project-tags">
-                            <span>Editing</span>
-                            <span>Sound Design</span>
-                            <span>Color</span>
-                        </div>
-                        <div class="project-stats">
-                            <span><i class="fas fa-trophy"></i> Film Festival Winner</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4 -->
-                <article class="project-card" data-category="commercial" data-aos="fade-up">
-                    <div class="project-media">
-                        <img src="assets/thumbnails/project4.jpg" alt="Tech Startup Promo">
-                        <div class="project-overlay">
-                            <button class="project-play" data-video="VIDEO_ID_4">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <span class="project-category">Commercial</span>
-                        <span class="project-duration">
-                            <i class="fas fa-clock"></i> 1:30
-                        </span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Tech Startup - Product Launch</h3>
-                        <p class="project-description">Sleek product reveal with 3D motion graphics and modern aesthetics</p>
-                        <div class="project-tags">
-                            <span>Motion Graphics</span>
-                            <span>3D</span>
-                            <span>Product</span>
-                        </div>
-                        <div class="project-stats">
-                            <span><i class="fas fa-eye"></i> 500K views</span>
-                            <span><i class="fas fa-heart"></i> 25K likes</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 5 -->
-                <article class="project-card" data-category="social" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-media">
-                        <img src="assets/thumbnails/project5.jpg" alt="Instagram Reels">
-                        <div class="project-overlay">
-                            <button class="project-play" data-video="VIDEO_ID_5">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <span class="project-category">Social Media</span>
-                        <span class="project-duration">
-                            <i class="fas fa-clock"></i> 0:30
-                        </span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Viral Instagram Reels Package</h3>
-                        <p class="project-description">Trending reels with engaging transitions and hooks</p>
-                        <div class="project-tags">
-                            <span>Reels</span>
-                            <span>TikTok</span>
-                            <span>Transitions</span>
-                        </div>
-                        <div class="project-stats">
-                            <span><i class="fas fa-eye"></i> 5M+ total views</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 6 -->
-                <article class="project-card" data-category="music-video" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-media">
-                        <img src="assets/thumbnails/project6.jpg" alt="Music Video Midnight">
-                        <div class="project-overlay">
-                            <button class="project-play" data-video="VIDEO_ID_6">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <span class="project-category">Music Video</span>
-                        <span class="project-duration">
-                            <i class="fas fa-clock"></i> 3:45
-                        </span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Artist - "Midnight Dreams"</h3>
-                        <p class="project-description">Dark aesthetic music video with powerful visual storytelling</p>
-                        <div class="project-tags">
-                            <span>Dark Aesthetic</span>
-                            <span>VFX</span>
-                            <span>Storytelling</span>
-                        </div>
-                        <div class="project-stats">
-                            <span><i class="fas fa-eye"></i> 800K views</span>
-                            <span><i class="fas fa-heart"></i> 55K likes</span>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-            <!-- Load More Button -->
-            <div class="load-more-container" data-aos="fade-up">
-                <button class="btn btn-secondary load-more-btn">
-                    <span>Load More Projects</span>
-                    <i class="fas fa-arrow-down"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== SERVICES SECTION ========== -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">// WHAT I OFFER</span>
-                <h2 class="section-title">
-                    My <span class="gradient-text">Services</span>
-                </h2>
-                <p class="section-description">
-                    Comprehensive video editing solutions to bring your vision to life
-                </p>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="services-grid">
-                
-                <!-- Service 1 -->
-                <div class="service-card" data-aos="fade-up">
-                    <div class="service-number">01</div>
-                    <div class="service-icon">
-                        <i class="fas fa-film"></i>
-                    </div>
-                    <h3 class="service-title">Video Editing</h3>
-                    <p class="service-description">
-                        Professional video editing for commercials, films, YouTube content, 
-                        and social media with seamless transitions, pacing, and storytelling.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Commercials & Ads</li>
-                        <li><i class="fas fa-check"></i> YouTube Videos</li>
-                        <li><i class="fas fa-check"></i> Documentaries</li>
-                        <li><i class="fas fa-check"></i> Corporate Videos</li>
-                    </ul>
-                    <div class="service-tools">
-                        <img src="assets/images/premiere-pro.png" alt="Premiere Pro" title="Premiere Pro">
-                        <img src="assets/images/davinci.png" alt="DaVinci Resolve" title="DaVinci Resolve">
-                        <img src="assets/images/fcp.png" alt="Final Cut Pro" title="Final Cut Pro">
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-number">02</div>
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 class="service-title">Color Grading</h3>
-                    <p class="service-description">
-                        Cinematic color grading that sets the mood, enhances storytelling, 
-                        and gives your footage that professional, film-like quality.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Cinematic Looks</li>
-                        <li><i class="fas fa-check"></i> Color Correction</li>
-                        <li><i class="fas fa-check"></i> LUT Creation</li>
-                        <li><i class="fas fa-check"></i> HDR Grading</li>
-                    </ul>
-                    <div class="service-tools">
-                        <img src="assets/images/davinci.png" alt="DaVinci Resolve" title="DaVinci Resolve">
-                        <img src="assets/images/lumetri.png" alt="Lumetri Color" title="Lumetri Color">
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-number">03</div>
-                    <div class="service-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <h3 class="service-title">Motion Graphics</h3>
-                    <p class="service-description">
-                        Eye-catching animations, title sequences, lower thirds, intros, 
-                        and visual effects that elevate your video content.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Logo Animations</li>
-                        <li><i class="fas fa-check"></i> Title Sequences</li>
-                        <li><i class="fas fa-check"></i> Lower Thirds</li>
-                        <li><i class="fas fa-check"></i> Kinetic Typography</li>
-                    </ul>
-                    <div class="service-tools">
-                        <img src="assets/images/after-effects.png" alt="After Effects" title="After Effects">
-                        <img src="assets/images/cinema4d.png" alt="Cinema 4D" title="Cinema 4D">
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-number">04</div>
-                    <div class="service-icon">
-                        <i class="fas fa-wand-magic-sparkles"></i>
-                    </div>
-                    <h3 class="service-title">VFX & Compositing</h3>
-                    <p class="service-description">
-                        Visual effects and compositing to create impossible shots, 
-                        screen replacements, green screen work, and seamless integration.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Green Screen</li>
-                        <li><i class="fas fa-check"></i> Compositing</li>
-                        <li><i class="fas fa-check"></i> Object Removal</li>
-                        <li><i class="fas fa-check"></i> CGI Integration</li>
-                    </ul>
-                    <div class="service-tools">
-                        <img src="assets/images/after-effects.png" alt="After Effects" title="After Effects">
-                        <img src="assets/images/nuke.png" alt="Nuke" title="Nuke">
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card" data-aos="fade-up">
-                    <div class="service-number">05</div>
-                    <div class="service-icon">
-                        <i class="fas fa-volume-high"></i>
-                    </div>
-                    <h3 class="service-title">Sound Design</h3>
-                    <p class="service-description">
-                        Professional audio mixing, sound effects, music sync, and 
-                        audio enhancement for an immersive viewing experience.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Audio Mixing</li>
-                        <li><i class="fas fa-check"></i> Sound Effects</li>
-                        <li><i class="fas fa-check"></i> Music Sync</li>
-                        <li><i class="fas fa-check"></i> Noise Reduction</li>
-                    </ul>
-                    <div class="service-tools">
-                        <img src="assets/images/audition.png" alt="Adobe Audition" title="Adobe Audition">
-                        <img src="assets/images/pro-tools.png" alt="Pro Tools" title="Pro Tools">
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-number">06</div>
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-screen"></i>
-                    </div>
-                    <h3 class="service-title">Social Media Content</h3>
-                    <p class="service-description">
-                        Scroll-stopping content for Instagram Reels, TikTok, YouTube Shorts, 
-                        and other social platforms optimized for engagement.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Instagram Reels</li>
-                        <li><i class="fas fa-check"></i> TikTok Videos</li>
-                        <li><i class="fas fa-check"></i> YouTube Shorts</li>
-                        <li><i class="fas fa-check"></i> Trending Edits</li>
-                    </ul>
-                    <div class="service-tools">
-                        <img src="assets/images/premiere-pro.png" alt="Premiere Pro" title="Premiere Pro">
-                        <img src="assets/images/capcut.png" alt="CapCut" title="CapCut">
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- CTA -->
-            <div class="services-cta" data-aos="fade-up">
-                <div class="cta-content">
-                    <h3>Have a Project in Mind?</h3>
-                    <p>Let's discuss how I can help bring your vision to life</p>
-                </div>
-                <a href="#contact" class="btn btn-primary">
-                    <span>Get a Quote</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== ABOUT SECTION ========== -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-grid">
-                <!-- About Image -->
-                <div class="about-image" data-aos="fade-right">
-                    <div class="image-container">
-                        <img src="assets/images/about-photo.jpg" alt="ANLOCKS - Video Editor">
-                        <div class="image-decoration"></div>
-                    </div>
-                    <div class="experience-badge">
-                        <span class="exp-number">5+</span>
-                        <span class="exp-text">Years of<br>Experience</span>
-                    </div>
-                    <div class="about-video-badge">
-                        <a href="#" class="mini-play-btn" data-video="ABOUT_VIDEO_ID">
-                            <i class="fas fa-play"></i>
-                        </a>
-                        <span>Watch My Story</span>
-                    </div>
-                </div>
-
-                <!-- About Content -->
-                <div class="about-content" data-aos="fade-left">
-                    <span class="section-subtitle">// ABOUT ME</span>
-                    <h2 class="section-title">
-                        The Creative Mind <br>
-                        <span class="gradient-text">Behind The Edits</span>
-                    </h2>
-                    
-                    <div class="about-text">
-                        <p>
-                            Hey there! I'm the creative force behind <strong>ANLOCKS</strong>. 
-                            With over 5 years of experience in video editing and post-production, 
-                            I've had the privilege of working with brands, artists, and creators 
-                            from around the world.
-                        </p>
-                        <p>
-                            My passion lies in transforming raw footage into compelling visual 
-                            stories that captivate audiences. Whether it's a high-energy commercial, 
-                            an emotional music video, or engaging social media content – I bring 
-                            the same level of creativity and attention to detail to every project.
-                        </p>
-                        <p>
-                            I believe in the power of visual storytelling to inspire, engage, and 
-                            leave a lasting impression. Let's create something amazing together!
-                        </p>
-                    </div>
-
-                    <!-- Skills -->
-                    <div class="skills-section">
-                        <h4>My Expertise</h4>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Adobe Premiere Pro</span>
-                                    <span class="skill-percentage">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="95"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">After Effects</span>
-                                    <span class="skill-percentage">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">DaVinci Resolve</span>
-                                    <span class="skill-percentage">88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="88"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Cinema 4D</span>
-                                    <span class="skill-percentage">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="75"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- About Buttons -->
-                    <div class="about-buttons">
-                        <a href="assets/ANLOCKS-Resume.pdf" class="btn btn-primary" download>
-                            <i class="fas fa-download"></i>
-                            <span>Download Resume</span>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Let's Talk</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== WORKFLOW SECTION ========== -->
-    <section class="workflow-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">// MY PROCESS</span>
-                <h2 class="section-title">
-                    How I <span class="gradient-text">Work</span>
-                </h2>
-            </div>
-
-            <div class="workflow-timeline">
-                <div class="workflow-step" data-aos="fade-up">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Discovery Call</h3>
-                        <p>We discuss your project, vision, goals, and requirements to understand exactly what you need.</p>
-                    </div>
-                </div>
-                <div class="workflow-step" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Planning & Strategy</h3>
-                        <p>I create a detailed plan including timeline, style direction, and project milestones.</p>
-                    </div>
-                </div>
-                <div class="workflow-step" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>First Draft</h3>
-                        <p>I deliver the first cut for your review with rough edit, music sync, and basic structure.</p>
-                    </div>
-                </div>
-                <div class="workflow-step" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <h3>Revisions</h3>
-                        <p>Based on your feedback, I refine the edit, color grade, and add final polish.</p>
-                    </div>
-                </div>
-                <div class="workflow-step" data-aos="fade-up" data-aos-delay="400">
-                    <div class="step-number">05</div>
-                    <div class="step-content">
-                        <h3>Final Delivery</h3>
-                        <p>You receive the final video in your preferred format, optimized for your platform.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== TESTIMONIALS SECTION ========== -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">// CLIENT REVIEWS</span>
-                <h2 class="section-title">
-                    What Clients <span class="gradient-text">Say</span>
-                </h2>
-            </div>
-
-            <div class="testimonials-wrapper" data-aos="fade-up">
-                <div class="testimonials-slider">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card active">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <blockquote class="testimonial-text">
-                            "ANLOCKS delivered beyond our expectations. The editing quality, 
-                            attention to detail, and creative vision transformed our brand video 
-                            into something truly cinematic. Highly recommend!"
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <img src="assets/images/client1.jpg" alt="Sarah Johnson">
-                            <div class="author-info">
-                                <h4>Sarah Johnson</h4>
-                                <span>Marketing Director, TechCorp</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-project">
-                            <span>Project:</span> Brand Commercial
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <blockquote class="testimonial-text">
-                            "Working with ANLOCKS was a game-changer for my music videos. 
-                            The color grading, transitions, and overall aesthetic perfectly 
-                            captured my artistic vision. Can't wait to collaborate again!"
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <img src="assets/images/client2.jpg" alt="Mike Chen">
-                            <div class="author-info">
-                                <h4>Mike Chen</h4>
-                                <span>Independent Artist</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-project">
-                            <span>Project:</span> Music Video
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-card">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <blockquote class="testimonial-text">
-                            "Incredible talent and professionalism! Fast turnaround, excellent 
-                            communication, and the final product always exceeds what I imagined. 
-                            My go-to editor for all my YouTube content!"
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <img src="assets/images/client3.jpg" alt="Emily Davis">
-                            <div class="author-info">
-                                <h4>Emily Davis</h4>
-                                <span>YouTuber, 2M+ Subscribers</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-project">
-                            <span>Project:</span> YouTube Content
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation -->
-                <div class="testimonial-nav">
-                    <button class="nav-btn prev-btn" aria-label="Previous testimonial">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <div class="testimonial-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                    <button class="nav-btn next-btn" aria-label="Next testimonial">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Client Logos -->
-            <div class="clients-section" data-aos="fade-up">
-                <p class="clients-title">Trusted by amazing brands & creators</p>
-                <div class="clients-logos">
-                    <div class="client-logo"><img src="assets/images/client-logo1.png" alt="Client"></div>
-                    <div class="client-logo"><img src="assets/images/client-logo2.png" alt="Client"></div>
-                    <div class="client-logo"><img src="assets/images/client-logo3.png" alt="Client"></div>
-                    <div class="client-logo"><img src="assets/images/client-logo4.png" alt="Client"></div>
-                    <div class="client-logo"><img src="assets/images/client-logo5.png" alt="Client"></div>
-                    <div class="client-logo"><img src="assets/images/client-logo6.png" alt="Client"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== CONTACT SECTION ========== -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Info -->
-                <div class="contact-info" data-aos="fade-right">
-                    <span class="section-subtitle">// GET IN TOUCH</span>
-                    <h2 class="section-title">
-                        Let's Create<br>
-                        <span class="gradient-text">Something Amazing</span>
-                    </h2>
-                    <p class="contact-description">
-                        Have a project in mind? I'd love to hear about it. Let's discuss 
-                        how I can help bring your vision to life through professional video editing.
-                    </p>
-
-                    <div class="contact-details">
-                        <a href="mailto:hello@anlocks.com" class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">Email Me</span>
-                                <span class="contact-value">hello@anlocks.com</span>
-                            </div>
-                        </a>
-
-                        <a href="https://wa.me/1234567890" class="contact-item" target="_blank">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">WhatsApp</span>
-                                <span class="contact-value">+1 (234) 567-890</span>
-                            </div>
-                        </a>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">Location</span>
-                                <span class="contact-value">Available Worldwide (Remote)</span>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <span class="contact-label">Response Time</span>
-                                <span class="contact-value">Within 24 Hours</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-social">
-                        <span>Follow Me</span>
-                        <div class="social-links">
-                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
-                            <a href="#" aria-label="Vimeo"><i class="fab fa-vimeo-v"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="contact-form-wrapper" data-aos="fade-left">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-header">
-                            <h3>Send a Message</h3>
-                            <p>Fill out the form and I'll get back to you shortly</p>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Your Name *</label>
-                                <input type="text" id="name" name="name" placeholder="John Doe" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="service">Service Needed *</label>
-                                <select id="service" name="service" required>
-                                    <option value="" disabled selected>Select a service</option>
-                                    <option value="video-editing">Video Editing</option>
-                                    <option value="color-grading">Color Grading</option>
-                                    <option value="motion-graphics">Motion Graphics</option>
-                                    <option value="vfx">VFX & Compositing</option>
-                                    <option value="sound-design">Sound Design</option>
-                                    <option value="social-media">Social Media Content</option>
-                                    <option value="full-package">Full Package</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="budget">Budget Range</label>
-                                <select id="budget" name="budget">
-                                    <option value="" disabled selected>Select budget</option>
-                                    <option value="under-500">Under \$500</option>
-                                    <option value="500-1000">\$500 - \$1,000</option>
-                                    <option value="1000-2500">\$1,000 - \$2,500</option>
-                                    <option value="2500-5000">\$2,500 - \$5,000</option>
-                                    <option value="5000+">\$5,000+</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Project Details *</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, timeline, and any specific requirements..." required></textarea>
-                        </div>
-
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="newsletter">
-                                <span class="checkmark"></span>
-                                Subscribe to my newsletter for tips and updates
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-
-                        <div class="form-status" id="formStatus"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <div class="container">
-            <!-- Footer Top -->
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <span class="logo-an">AN</span><span class="logo-locks">LOCKS</span>
-                    </a>
-                    <p>Transforming ideas into visual masterpieces. Professional video editing services for brands, artists, and creators worldwide.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
-                        <a href="#" aria-label="Vimeo"><i class="fab fa-vimeo-v"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#showreel">Showreel</a></li>
-                            <li><a href="#work">Portfolio</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Services</h4>
-                        <ul>
-                            <li><a href="#services">Video Editing</a></li>
-                            <li><a href="#services">Color Grading</a></li>
-                            <li><a href="#services">Motion Graphics</a></li>
-                            <li><a href="#services">VFX</a></li>
-                            <li><a href="#services">Sound Design</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Contact</h4>
-                        <ul>
-                            <li><a href="mailto:hello@anlocks.com">hello@anlocks.com</a></li>
-                            <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
-                            <li>Available Worldwide</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p>&copy; 2024 ANLOCKS. All Rights Reserved.</p>
-                <p>Crafted with <span class="heart">❤</span> for Visual Storytelling</p>
-            </div>
-        </div>
-
-        <!-- Back to Top -->
-        <a href="#home" class="back-to-top" id="backToTop">
-            <i class="fas fa-arrow-up"></i>
-        </a>
+        <p style="margin-top: 50px; font-size: 0.9rem;">
+            © 2026 Anlocks Editing. Visit my main site at <a href="https://anlocks.com/" class="footer-link" target="_blank">Anlocks.com</a>
+        </p>
     </footer>
 
-    <!-- ========== VIDEO MODAL ========== -->
-    <div class="video-modal" id="videoModal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-video">
-                <iframe id="modalVideoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
 
-    <!-- ========== SCRIPTS ========== -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
